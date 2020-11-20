@@ -1,3 +1,4 @@
+'use strict'
 //function
 //- fundamental building block in the program
 //- subprogram can be used multiple times
