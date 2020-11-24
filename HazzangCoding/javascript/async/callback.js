@@ -4,73 +4,77 @@
 //Execute the code block by orger after hoisting
 //hoisting: var, function deciaration
 console.log('1');
-setTimeout(() => console.log('2'), 1000);
+setTimeout(() => {
+    console.log('2');
+}, 1000)
 console.log('3');
 
+
 //Synchronous callback
-function printImmidiatly(print) {
+function printImmediately(print) {
     print();
 }
-printImmidiatly(() => console.log('하연~~'));
+printImmediately(() => console.log('Hi Hazzang~~'));
 
 
 //Asynchronous callback
-function printWithDelay(print, timeout){
+function printWithDelay(print, timeout) {
     setTimeout(print, timeout);
 }
-printWithDelay(() => console.log('I love you'), 2000);
+printWithDelay(() => console.log(`I'm not tired`), 2000);
 
 
 //Callback Hell example
 class UserStoryage {
     logingUser(id, password, onSuccess, onError) {
         setTimeout(() => {
-            if(
+            if (
                 (id === 'hazzang' && password === '0000') ||
                 (id === 'coding' && password === '0000')
-            ){
+            ) {
                 onSuccess(id);
-            }else {
-                onError(new Error('not fount'));
-            }
-
-        }, 2000);
-
-    }
-
-    getRoles(user, onSuccess, onError) {
-        setTimeout(() => {
-            if(user === 'hazzang') {
-                onSuccess({name: 'hazzang', role: 'admin' });
-            }else {
+            } else {
                 onError(new Error('no success'));
             }
-        }, 1000);
+        }, 2000);
     }
+    getRoles(user, onSuccess, onError) {
+        setTimeout(() => {
+            if (user === 'hazzang') {
+                onSuccess({ name: 'hazzang', role: 'admin' });
+            } else {
+                onError(new Error('not found'));
+            }
+        }, 1000);
+
+    }
+
 }
 
-
 const UserStoryage = new UserStoryage();
-const id = prompt("enter your id");
-const password = prompt("enter your password");
+const id = prompt('enter your id');
+const password = prompt('enter your password');
 UserStoryage.logingUser(
     id, 
     password, 
-    (user) => {
-        UserStoryage.getRoles(user, 
-            usserWithRole => {
-                alert(`Hellow: ${usserWithRole.name}, you have a ${usserWithRole.role} role`);
-            }, 
+    user => {
+        UserStoryage.getRoles(
+            use, 
+            userWithRole => {
+                alert(
+                    `Hello ${userWithRole.name}, ${userWithRole.role}`
+                );
+            },
             error => {
-                console.log(error);
-            });
+                console.log('error');
+            }
+        );
     }, 
     (error) => {
-        console.log(error);
+        console.log('error');
     }
+
 );
-
-
 
 
 
