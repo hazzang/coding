@@ -6,10 +6,10 @@
 
 //1. Producer
 //When new Promise is created, the executor runs automatically.
-const Promise = new Promise((resolve, reject) => {
-    //doing some heavy work(network, read files)
-    console.log('doing something....');
-    setTimeout(() => {
+const promise = new Promise((resolve, reject) => {
+    //doing some heavy work (network, read files)
+    console.log('doing something......');
+    setTimeout(()=> {
         //resolve('ellie');
         reject(new Error('no network'));
     }, 2000);
@@ -17,27 +17,46 @@ const Promise = new Promise((resolve, reject) => {
 
 //2. Consumers: then, catch, finally
 Promise
-    .than((value) => {
-        console.log(value);
+.then((value) => {
+    console.log(value);
+})
+.catch(error => {
+        console.log(Error);
     })
-    .catch(error => {
-        console.log(error)
-    })
-    .finally(() => {
-        console.log('finally');
-    });
-
+.finally(() => {
+    console.log('finally');
+});    
 
 //3. Promise chaining
-const fetchNumber = new Promise((resolve, reject) => {
+const fetchNumber = new promise((resolve, reject) => {
     setTimeout(() => resolve(1), 1000);
 });
 
 fetchNumber
-    .then(num => num * 2)
-    .then(num => num * 3)
-    .then(num => {
-        return new Promise((resolve, reject)) => {
-            setTimeout(() => resolve(num - 1), 1000);
-        })
-    ;    
+.then(num => 2)
+.then(num => 3)
+.then(num => {
+    return new promise((resolve, reject) => {
+        setTimeout(() => resolve(num - 1), 1000);
+    });
+})
+.then(num => console.log(num));
+
+//4. Error Handling
+const getHen = () => 
+new Promise((resolve, reject) => {
+    setTimeout(() => resolve('a'), 1000);
+});
+const getEgg = hen =>
+new promise((resolve, reject) => {
+    setTimeout(() => resolve(`${hen} => b`), 1000);
+});
+const cook = egg =>
+new promise((resolve, reject) => {
+    setTimeout(() => resolve(`${egg} => c`), 1000);
+});
+
+getHen()
+.then(hen => getEgg(hen))
+.then(egg => cook(egg))
+.than(meal => console.log(meal));
