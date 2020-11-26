@@ -35,7 +35,8 @@ class UserStoryage {
 const UserStoryage = new UserStoryage();
 const id = prompt('enter your id');
 const password = prompt('enter your password');
-UserStoryage.logingUser(id, password)
+UserStoryage
+.logingUser(id, password)
 .then(UserStoryage.getRoles)
 .then(user => alert(`Hello ${user.name}, ${user.role}`));
 .catch(console.log);
