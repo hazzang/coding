@@ -55,11 +55,11 @@ const UserStoryage = new UserStoryage();
 const id = prompt('enter your id');
 const password = prompt('enter your password');
 UserStoryage.logingUser(
-    id, 
-    password, 
+    id,
+    password,
     user => {
         UserStoryage.getRoles(
-            use, 
+            use,
             userWithRole => {
                 alert(
                     `Hello ${userWithRole.name}, ${userWithRole.role}`
@@ -69,7 +69,7 @@ UserStoryage.logingUser(
                 console.log('error');
             }
         );
-    }, 
+    },
     (error) => {
         console.log('error');
     }

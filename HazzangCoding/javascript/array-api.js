@@ -11,7 +11,7 @@
 {
     const fruits = '사과, 배, 자두, 포도, 앵두';
     const result = fruits.split(',');
-    console.log(result);    
+    console.log(result);
 }
 
 //03. make this array look like this: [5, 4, 3, 2, 1]
@@ -29,13 +29,13 @@
     console.log(array);
 }
 
-class Student{
-   constructor(name, age, enrolled, score) {
-       this.name = name;
-       this.age = age;
-       this.enrolled = enrolled;
-       this.score = score;
-   }
+class Student {
+    constructor(name, age, enrolled, score) {
+        this.name = name;
+        this.age = age;
+        this.enrolled = enrolled;
+        this.score = score;
+    }
 }
 const students = [
     new Student('A', 29, true, 45),
@@ -43,11 +43,11 @@ const students = [
     new Student('C', 30, true, 90),
     new Student('D', 40, false, 66),
     new Student('E', 18, true, 88),
-]    
+]
 
 //05. find a student with the score 90
 {
-    const result = Students.find((students) => Student.score === 90);    
+    const result = Students.find((students) => Student.score === 90);
     console.log(result);
 }
 
@@ -74,7 +74,7 @@ const students = [
 
 //09. compute students' average score
 {
-    const result = students.reduce((prev, curr) => prev + curr,score, 0);
+    const result = students.reduce((prev, curr) => prev + curr, score, 0);
     console.log(result / students.length);
 }
 
@@ -82,9 +82,9 @@ const students = [
 //result should be: '45, 80, 90, 66, 88'
 {
     const result = students
-    .map((Student) => Student.score)
-    .filter((score) => score >= 50)
-    .join();
+        .map((Student) => Student.score)
+        .filter((score) => score >= 50)
+        .join();
     console.log(result);
 }
 
@@ -93,9 +93,9 @@ const students = [
 //result should be: '45, 66, 80, 88, 90'
 {
     const result = students
-    .map((students) => student.score)
-    .sort((a, b) => a - b)
-    .join();
+        .map((students) => student.score)
+        .sort((a, b) => a - b)
+        .join();
     console.log(result);
 }
 
