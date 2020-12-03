@@ -1,21 +1,15 @@
 const title = document.querySelector("#title");
 
-const baseColor = "white";
-const otherColor = "green";
+const classClick = "clicked";
 
 function handleClick() {
-    const correntColor = title.style.color;
-    if(correntColor === baseColor) {
-        title.style.color = otherColor;
-    }else {
-        title.style.color = baseColor;
-    }
+    title.classList.toggle(classClick);
+
 }
 
 
 function init() {
-
-    title.style.color = baseColor;
+    
     window.addEventListener("click", handleClick);
 }
 
