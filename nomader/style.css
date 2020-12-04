@@ -3,3 +3,5 @@ h1{color:white;transition: color .5s ease-in-out;}
 
 .btn{cursor: pointer;}
 .clicked {color:blue;}
+
+.clock{}
