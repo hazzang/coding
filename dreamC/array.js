@@ -1,6 +1,6 @@
 'use strict';
 
-// 배열 표기는 아래와 같이 2가지 방법으로 한다.
+// 배열 표기는 아래와 같이 2가지 방법으로 한다..
 const arr1 = new Array();
 const arr2 = [1, 2];
 
